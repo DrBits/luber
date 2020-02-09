@@ -1,0 +1,7 @@
+{
+  "name": "luber-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Alex Levanov <ilewanof@gmail.com>",
+  "license": "MIT"
+}
