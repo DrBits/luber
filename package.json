@@ -5,9 +5,21 @@
   "author": "Alex Levanov <ilewanof@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@types/cors": "^2.8.6",
+    "@types/helmet": "^0.0.45",
+    "@types/morgan": "^1.7.37",
     "@types/node": "^13.7.0",
     "nodemon": "^2.0.2",
     "ts-node": "^8.6.2",
     "typescript": "^3.7.5"
+  },
+  "scripts": {
+    "dev": "cd src && nodemon --exec ts-node index.ts -e ts,graphql"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "graphql-yoga": "^1.18.3",
+    "helmet": "^3.21.2",
+    "morgan": "^1.9.1"
   }
 }
