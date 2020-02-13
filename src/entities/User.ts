@@ -6,6 +6,7 @@ import {
   PrimaryGeneratedColumn,
   Column,
   CreateDateColumn,
+  UpdateDateColumn,
   BeforeInsert,
   BeforeUpdate
 } from 'typeorm';
@@ -63,7 +64,7 @@ class User extends BaseEntity {
   lastOrientation: number;
 
   @CreateDateColumn() createdAt: string;
-  @CreateDateColumn() updatedAt: string;
+  @UpdateDateColumn() updatedAt: string;
 
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
