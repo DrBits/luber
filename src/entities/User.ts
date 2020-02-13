@@ -1,3 +1,4 @@
+import bcrypt from 'bcrypt';
 import { IsEmail } from 'class-validator';
 import {
   Entity,
@@ -57,12 +58,12 @@ class User extends BaseEntity {
   @Column({ type: 'double precision', default: 0 })
   lastOrientation: number;
 
+  @CreateDateColumn() createdAt: string;
+  @CreateDateColumn() updatedAt: string;
+
   get fullName(): string {
     return `${this.firstName} ${this.lastName}`;
   }
-
-  @CreateDateColumn() createdAt: string;
-  @CreateDateColumn() updatedAt: string;
 }
 
 export default User;
