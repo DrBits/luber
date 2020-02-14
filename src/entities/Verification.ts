@@ -32,7 +32,7 @@ class Verification extends BaseEntity {
   @UpdateDateColumn() updatedAt: string;
 
   @BeforeInsert()
-  private createKey(): void {
+  createKey(): void {
     if (this.target === PHONE) {
       this.key = Math.floor(Math.random() * 100000).toString();
     } else if (this.target === EMAIL) {
