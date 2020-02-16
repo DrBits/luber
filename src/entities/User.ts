@@ -39,10 +39,10 @@ class User extends BaseEntity {
   @Column({ type: 'int', nullable: true })
   age: number;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   password: string;
 
-  @Column({ type: 'text' })
+  @Column({ type: 'text', nullable: true })
   phoneNumber: string;
 
   @Column({ type: 'boolean', default: false })
@@ -109,7 +109,7 @@ class User extends BaseEntity {
     return `${this.firstName} ${this.lastName}`;
   }
 
-  public comparePassword(password: string): Promise<boolean> {
+  public comparePassword(password: string | null): Promise<boolean> {
     return bcrypt.compare(password, this.password);
   }
 
