@@ -29,7 +29,7 @@ class App {
 
   private jwt = async (
     req: any,
-    res: Response,
+    __: Response,
     next: NextFunction
   ): Promise<void> => {
     const token = req.get('X-JWT');
