@@ -4,7 +4,7 @@ import { ToggleDrivingModeResponse } from '../../../types/graph';
 import User from 'entities/User';
 
 const resolvers: Resolvers = {
-  Mutations: {
+  Mutation: {
     ToggleDrivingMode: privateResolver(
       async (_, __, { req }): Promise<ToggleDrivingModeResponse> => {
         const user: User = req.user;
