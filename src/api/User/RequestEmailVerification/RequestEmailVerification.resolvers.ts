@@ -1,32 +1,28 @@
-import { Resolvers } from 'types/resolvers';
-import privateResolver from '../../../utils/privateResolver';
 import User from '../../../entities/User';
 import Verification from '../../../entities/Verification';
-import { sendVerificationEmail } from '../../../utils/sendEmail';
 import { RequestEmailVerificationResponse } from '../../../types/graph';
+import { Resolvers } from '../../../types/resolvers';
+import privateResolver from '../../../utils/privateResolver';
+import { sendVerificationEmail } from '../../../utils/sendEmail';
 
 const resolvers: Resolvers = {
   Mutation: {
     RequestEmailVerification: privateResolver(
       async (_, __, { req }): Promise<RequestEmailVerificationResponse> => {
         const user: User = req.user;
-        if (user.email) {
+        if (user.email && !user.verifiedEmail) {
           try {
             const verification = await Verification.findOne({
               payload: user.email
             });
-
             if (verification) {
               verification.remove();
             }
-
             const newVerification = await Verification.create({
               payload: user.email,
               target: 'EMAIL'
             }).save();
-
             await sendVerificationEmail(user.fullName, newVerification.key);
-
             return {
               ok: true,
               error: null
