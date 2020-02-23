@@ -1,5 +1,5 @@
 import { Resolvers } from 'types/resolvers';
-import privateResolver from 'utils/privateResolver';
+import privateResolver from '../../../utils/privateResolver';
 import { ToggleDrivingModeResponse } from '../../../types/graph';
 import User from 'entities/User';
 
