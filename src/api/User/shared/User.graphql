@@ -22,8 +22,8 @@ type User {
   ridesAsPassenger: [Ride]
   ridesAsDriver: [Ride]
   places: [Place]
-  createAt: String!
-  updateAt: String
+  createdAt: String!
+  updatedAt: String
 }
 
 type Query {

@@ -34,7 +34,7 @@ class User extends BaseEntity {
   firstName: string;
 
   @Column({ type: 'text' })
-  lastName: string | null;
+  lastName: string;
 
   @Column({ type: 'int', nullable: true })
   age: number;
@@ -97,7 +97,7 @@ class User extends BaseEntity {
   ridesAsDriver: Ride[];
 
   @OneToMany(
-    () => Place,
+    _ => Place,
     place => place.user
   )
   places: Place[];
