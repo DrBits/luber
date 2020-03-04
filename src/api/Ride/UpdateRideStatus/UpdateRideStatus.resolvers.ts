@@ -6,6 +6,7 @@ import {
   UpdateRideStatusReponse
 } from '../../../types/graph';
 import Ride from '../../../entities/Ride';
+import Chat from 'entities/Chat';
 
 const resolvers: Resolvers = {
   Mutation: {
@@ -28,6 +29,10 @@ const resolvers: Resolvers = {
                 ride.driver = user;
                 user.isTaken = true;
                 user.save();
+                await Chat.create({
+                  driver: user,
+                  passenger: ride.passenger
+                }).save();
               }
             } else {
               ride = await Ride.findOne({
