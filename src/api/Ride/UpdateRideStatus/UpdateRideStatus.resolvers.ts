@@ -6,7 +6,7 @@ import {
   UpdateRideStatusReponse
 } from '../../../types/graph';
 import Ride from '../../../entities/Ride';
-import Chat from 'entities/Chat';
+import Chat from '../../../entities/Chat';
 
 const resolvers: Resolvers = {
   Mutation: {

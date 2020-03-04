@@ -1,8 +1,8 @@
 import { Resolvers } from 'types/resolvers';
-import privateResolver from 'utils/privateResolver';
-import User from 'entities/User';
+import privateResolver from '../../../utils/privateResolver';
+import User from '../../../entities/User';
 import { GetRideQueryArgs, GetRideResponse } from '../../../types/graph';
-import Ride from 'entities/Ride';
+import Ride from '../../../entities/Ride';
 
 const resolvers: Resolvers = {
   Query: {
