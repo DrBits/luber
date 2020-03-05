@@ -6,11 +6,13 @@ import {
   UpdateDateColumn,
   OneToMany,
   ManyToOne,
-  Column
+  Column,
+  OneToOne
 } from 'typeorm';
 
 import Message from './Message';
 import User from './User';
+import Ride from './Ride';
 
 @Entity()
 class Chat extends BaseEntity {
@@ -27,6 +29,15 @@ class Chat extends BaseEntity {
 
   @Column({ nullable: true })
   driverId: number;
+
+  @Column({ nullable: true })
+  rideId: number;
+
+  @OneToOne(
+    _ => Ride,
+    ride => ride.chat
+  )
+  ride: Ride;
 
   @ManyToOne(
     () => User,
